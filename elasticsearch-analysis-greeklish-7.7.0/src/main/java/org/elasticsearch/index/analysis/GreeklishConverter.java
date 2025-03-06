@@ -3,7 +3,6 @@ package org.elasticsearch.index.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.Logger;
 import org.elasticsearch.common.logging.Loggers;
 
@@ -119,10 +118,9 @@ public class GreeklishConverter {
 	 * @return true if the string contains only Greek characters
 	 */
 	private boolean identifyGreekWord(String input) {
-		if (StringUtils.containsOnly(input, GREEK_CHARACTERS)) {
-			return true;
-		} else {
-			return false;
+		if (input != null && !input.isEmpty()) {
+			return input.chars().allMatch(c -> GREEK_CHARACTERS.indexOf(c) >= 0);
 		}
+		return false;
 	}
 }
