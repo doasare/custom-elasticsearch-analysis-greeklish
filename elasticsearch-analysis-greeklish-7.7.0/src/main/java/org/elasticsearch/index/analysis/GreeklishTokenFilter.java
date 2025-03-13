@@ -1,49 +1,38 @@
 package org.elasticsearch.index.analysis;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Stack;
-
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
 import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.util.AttributeSource;
-import org.apache.logging.log4j.Logger;
-import org.elasticsearch.common.logging.Loggers;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Stack;
+
+import static sun.security.x509.OIDMap.addAttribute;
 
 /**
- * @author Tasos Stathopoulos
- * It generates greeklish tokens(tokens with latin characters) from Greek tokens.
- * The generated tokens will have the same position and the same offset with the
- * original Greek tokens, and their type will be {@code greeklish_word}.
- * This filters acts <b>only on Greek lowercase characters</b> and for this reason
- * it should be applied after lowercase filter for Greek language.
+ * This filter generates Greeklish tokens from Greek tokens.
+ * Greeklish tokens have the same position and offset as the original Greek tokens,
+ * and their type will be {@code greeklish_word}.
  */
 public class GreeklishTokenFilter extends TokenFilter {
-	private static final Logger logger =
-		Loggers.getLogger(GreeklishConverter.class,
-											GreeklishConverter.class.getSimpleName());
-	/**
-	 * The type of the generated tokens
-	 */
+	private static final Logger logger = LoggerFactory.getLogger(GreeklishTokenFilter.class);
+
 	public static final String TOKEN_TYPE = "greeklish_word";
 
-	/**
-	 * The greeklish word buffer
-	 */
-	private Stack<char[]> greeklishWords = new Stack<char[]>();
-
+	private Stack<char[]> greeklishWords = new Stack<>();
 	private AttributeSource.State current;
+
 	private final CharTermAttribute termAttribute = addAttribute(CharTermAttribute.class);
 	private final PositionIncrementAttribute posIncAttribute = addAttribute(PositionIncrementAttribute.class);
 	private final TypeAttribute typeAttribute = addAttribute(TypeAttribute.class);
 
-	/**
-	 * The greeklish converter that makes all the real work.
-	 */
-	private GreeklishConverter greeklishConverter;
+	private final GreeklishConverter greeklishConverter;
 
 	// Constructor
 	public GreeklishTokenFilter(TokenStream tokenStream, int maxExpansions, boolean generateGreekVariants) {
@@ -53,9 +42,8 @@ public class GreeklishTokenFilter extends TokenFilter {
 
 	@Override
 	public boolean incrementToken() throws IOException {
-		// If the stack has greeklish tokens, now it is the
-		// right time to put them in the token stream
-		if (greeklishWords.size() > 0) {
+		// If we have Greeklish tokens in the stack, use them
+		if (!greeklishWords.isEmpty()) {
 			char[] greeklishWord = greeklishWords.pop();
 			restoreState(current);
 			termAttribute.copyBuffer(greeklishWord, 0, greeklishWord.length);
@@ -64,13 +52,13 @@ public class GreeklishTokenFilter extends TokenFilter {
 			typeAttribute.setType(TOKEN_TYPE);
 			return true;
 		}
-		// No more tokens in the token stream, it's over
+
+		// Otherwise, continue with the token stream
 		if (!input.incrementToken()) {
 			return false;
 		}
 
-		// if this token is useful to generate greeklish tokens
-		// hold the current state, because we have work to do.
+		// Check if the token can generate Greeklish and capture the current state
 		if (addWordsToStack()) {
 			current = captureState();
 		}
@@ -78,34 +66,25 @@ public class GreeklishTokenFilter extends TokenFilter {
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void reset() throws IOException {
 		super.reset();
 	}
 
 	/**
-	 * This method checks if a token can be used to generate greeklish tokens.
-	 * If it is valid, it populates the greeklish token buffer with greeklish
-	 * tokens.
-	 * @return false if no tokens are generated, true elsewhere.
-	 * @throws IOException
+	 * This method checks if a token can be converted to Greeklish.
+	 * If yes, it adds the Greeklish tokens to the stack.
 	 */
 	private boolean addWordsToStack() throws IOException {
-		// Did the converter returned any greeklish tokens
-		// If true, place the in the token buffer, or else go to the next
-		// Greek token of the token stream.
 		List<StringBuilder> greeklishTokens = greeklishConverter.convert(termAttribute.buffer(), termAttribute.length());
 		if (greeklishTokens == null || greeklishTokens.isEmpty()) {
 			return false;
 		}
+
 		for (StringBuilder word : greeklishTokens) {
 			greeklishWords.push(word.toString().toCharArray());
 		}
+
 		return true;
 	}
-
-
 }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-13T13:33:50Z" name="Command line suite" finished-at="2025-03-13T13:33:51Z" duration-ms="202">
+    <groups>
+    </groups>
+    <test started-at="2025-03-13T13:33:50Z" name="Command line test" finished-at="2025-03-13T13:33:51Z" duration-ms="202">
+      <class name="org.elasticsearch.index.analysis.GreeklishGeneratorTest">
+        <test-method is-config="true" signature="populateInputGreekList()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishGeneratorTest@1622f1b]" started-at="2025-03-13T14:33:51Z" name="populateInputGreekList" finished-at="2025-03-13T14:33:51Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- populateInputGreekList -->
+        <test-method signature="testGreekTokenConversionForValidWords()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishGeneratorTest@1622f1b]" started-at="2025-03-13T14:33:51Z" name="testGreekTokenConversionForValidWords" finished-at="2025-03-13T14:33:51Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGreekTokenConversionForValidWords -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishGeneratorTest@1622f1b]" started-at="2025-03-13T14:33:51Z" name="setUp" finished-at="2025-03-13T14:33:51Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testMaxGreeklishWordGenerations()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishGeneratorTest@1622f1b]" started-at="2025-03-13T14:33:51Z" name="testMaxGreeklishWordGenerations" finished-at="2025-03-13T14:33:51Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMaxGreeklishWordGenerations -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishGeneratorTest@1622f1b]" started-at="2025-03-13T14:33:51Z" name="setUp" finished-at="2025-03-13T14:33:51Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+      </class> <!-- org.elasticsearch.index.analysis.GreeklishGeneratorTest -->
+      <class name="org.elasticsearch.index.analysis.GreeklishReverseStemmerTest">
+        <test-method is-config="true" signature="clearThePreviousResults()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishReverseStemmerTest@2473d930]" started-at="2025-03-13T14:33:51Z" name="clearThePreviousResults" finished-at="2025-03-13T14:33:51Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clearThePreviousResults -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishReverseStemmerTest@2473d930]" started-at="2025-03-13T14:33:51Z" name="setUp" finished-at="2025-03-13T14:33:51Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testGenerationOfGreekVariants()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishReverseStemmerTest@2473d930]" started-at="2025-03-13T14:33:51Z" name="testGenerationOfGreekVariants" finished-at="2025-03-13T14:33:51Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGenerationOfGreekVariants -->
+        <test-method is-config="true" signature="clearThePreviousResults()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishReverseStemmerTest@2473d930]" started-at="2025-03-13T14:33:51Z" name="clearThePreviousResults" finished-at="2025-03-13T14:33:51Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clearThePreviousResults -->
+        <test-method signature="testNonMatchingWords()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishReverseStemmerTest@2473d930]" started-at="2025-03-13T14:33:51Z" name="testNonMatchingWords" finished-at="2025-03-13T14:33:51Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNonMatchingWords -->
+      </class> <!-- org.elasticsearch.index.analysis.GreeklishReverseStemmerTest -->
+      <class name="org.elasticsearch.index.analysis.GreeklishConverterTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishConverterTest@72a7c7e0]" started-at="2025-03-13T14:33:50Z" name="setUp" finished-at="2025-03-13T14:33:51Z" duration-ms="144" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="emptyConvertedGreeklishStrings()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishConverterTest@72a7c7e0]" started-at="2025-03-13T14:33:51Z" name="emptyConvertedGreeklishStrings" finished-at="2025-03-13T14:33:51Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emptyConvertedGreeklishStrings -->
+        <test-method signature="testGreekTokenConversionForValidWords()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishConverterTest@72a7c7e0]" started-at="2025-03-13T14:33:51Z" name="testGreekTokenConversionForValidWords" finished-at="2025-03-13T14:33:51Z" duration-ms="25" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGreekTokenConversionForValidWords -->
+        <test-method is-config="true" signature="emptyConvertedGreeklishStrings()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishConverterTest@72a7c7e0]" started-at="2025-03-13T14:33:51Z" name="emptyConvertedGreeklishStrings" finished-at="2025-03-13T14:33:51Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emptyConvertedGreeklishStrings -->
+        <test-method signature="testGreekTokenConversionsForInvalidWords()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishConverterTest@72a7c7e0]" started-at="2025-03-13T14:33:51Z" name="testGreekTokenConversionsForInvalidWords" finished-at="2025-03-13T14:33:51Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGreekTokenConversionsForInvalidWords -->
+        <test-method signature="testGreekVariantsGeneration()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishConverterTest@72a7c7e0]" started-at="2025-03-13T14:33:51Z" name="testGreekVariantsGeneration" finished-at="2025-03-13T14:33:51Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGreekVariantsGeneration -->
+        <test-method is-config="true" signature="emptyConvertedGreeklishStrings()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishConverterTest@72a7c7e0]" started-at="2025-03-13T14:33:51Z" name="emptyConvertedGreeklishStrings" finished-at="2025-03-13T14:33:51Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emptyConvertedGreeklishStrings -->
+        <test-method is-config="true" signature="emptyConvertedGreeklishStrings()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishConverterTest@72a7c7e0]" started-at="2025-03-13T14:33:51Z" name="emptyConvertedGreeklishStrings" finished-at="2025-03-13T14:33:51Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- emptyConvertedGreeklishStrings -->
+        <test-method signature="testMaxGreeklishExpansions()[pri:0, instance:org.elasticsearch.index.analysis.GreeklishConverterTest@72a7c7e0]" started-at="2025-03-13T14:33:51Z" name="testMaxGreeklishExpansions" finished-at="2025-03-13T14:33:51Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMaxGreeklishExpansions -->
+      </class> <!-- org.elasticsearch.index.analysis.GreeklishConverterTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
