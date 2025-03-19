@@ -1,7 +1,5 @@
 package org.elasticsearch.index.analysis;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
@@ -21,8 +19,6 @@ import static sun.security.x509.OIDMap.addAttribute;
  * and their type will be {@code greeklish_word}.
  */
 public class GreeklishTokenFilter extends TokenFilter {
-	private static final Logger logger = LoggerFactory.getLogger(GreeklishTokenFilter.class);
-
 	public static final String TOKEN_TYPE = "greeklish_word";
 
 	private Stack<char[]> greeklishWords = new Stack<>();
